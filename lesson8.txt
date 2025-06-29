@@ -1,0 +1,28 @@
+1.	Компоненты приложения:
+o	UI: Адаптивный интерфейс (Flexbox, Grid).
+o	Логика: JavaScript для обработки данных и событий.
+o	Данные: API (JSONPlaceholder) и localStorage.
+o	Оптимизация: Минификация, кэширование, производительность.
+
+2.	Оптимизация:
+o	CSS: Минификация, удаление неиспользуемых стилей.
+o	JS: Сжатие, избегание тяжёлых операций.
+o	Изображения: Сжатие (например, WebP).
+o	Lighthouse: Аудит производительности, доступности, SEO.
+
+3.	Тестирование:
+o	Кроссбраузерность: Chrome, Firefox, Safari.
+o	Адаптивность: Breakpoints (320px, 768px, 1024px).
+o	DevTools: Network, Performance, Console.
+
+4.	Публикация:
+o	GitHub Pages: Хостинг статических сайтов.
+o	Git: Основы (init, commit, push).
+o	CI/CD: Автоматическое обновление при коммитах.
+
+Инструменты
+•	VS Code: Live Server, Prettier, GitLens.
+•	Chrome DevTools: Lighthouse, Network, Performance.
+•	GitHub: Репозиторий, GitHub Pages.
+•	API: JSONPlaceholder для задач.
+•	CLI: Терминал для Git (git, npm).
