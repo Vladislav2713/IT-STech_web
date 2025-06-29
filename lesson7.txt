@@ -1,0 +1,90 @@
+1.	Основы асинхронности:
+o	Синхронный код: выполняется последовательно.
+o	Асинхронный код: выполняется с задержкой (например, загрузка данных).
+o	Event Loop: управляет асинхронными задачами.
+
+2.	Promises:
+o	Состояния: pending, fulfilled, rejected.
+o	Создание: new Promise((resolve, reject) => { ... }).
+o	Методы: .then(), .catch(), .finally().
+o	Пример:
+o	let promise = new Promise((resolve, reject) => {
+o	    setTimeout(() => resolve("Done"), 1000);
+o	});
+o	promise.then(result => console.log(result));
+
+3.	Async/Await:
+o	Синтаксис: async function func() { let result = await promise; }.
+o	Упрощает работу с Promise.
+o	Обработка ошибок: try { ... } catch (error) { ... }.
+
+4.	Fetch API:
+o	Запрос: fetch(url).then(res => res.json()).
+o	Методы: GET (получить), POST (отправить).
+o	Обработка ошибок: Проверка response.ok.
+o	Пример:
+o	fetch('https://api.example.com/data')
+o	 .then(res => res.json())
+o	 .then(data => console.log(data))
+o	 .catch(err => console.error(err));
+
+Работа с API
+API — интерфейс для обмена данными между клиентом и сервером.
+1.	Типы API:
+o	Публичные: например, JSONPlaceholder, OpenWeatherMap.
+o	Формат: Обычно JSON ({ key: value }).
+
+2.	Безопасность:
+o	API-ключи: Уникальный токен для доступа.
+o	CORS: Ограничения кросс-доменных запросов.
+
+3.	Инструменты:
+o	Postman: Тестирование API.
+o	DevTools: Вкладка Network для анализа запросов.
+o	VS Code: Live Server, REST Client.
+
+Для примера №2:
+1.	Обновите landing.html:
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1>Ваше приложение</h1>
+        <p>Создано для упрощения жизни</p>
+        <div class="weather-widget">
+            <p class="weather-info">Загрузка погоды...</p>
+        </div>
+    </div>
+</section>
+
+2.	Обновите landing.css:
+.weather-widget {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+}
+.weather-info {
+    font-size: 1.1rem;
+}
+
+3.	Обновите script.js:
+const weatherInfo = document.querySelector('.weather-info');
+
+async function fetchWeather() {
+    try {
+        // Используйте свой API-ключ OpenWeatherMap
+        const apiKey = 'ВАШ_API_КЛЮЧ'; // Замените на реальный ключ
+        const city = 'Moscow';
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`
+        );
+        if (!response.ok) throw new Error('Ошибка загрузки погоды');
+        const data = await response.json();
+        weatherInfo.textContent = `Погода в ${data.name}: ${data.main.temp}°C, ${data.weather[0].description}`;
+    } catch (error) {
+        console.error('Ошибка:', error);
+        weatherInfo.textContent = 'Не удалось загрузить погоду';
+}
+}
+// Загрузка погоды при загрузке страницы
+fetchWeather();

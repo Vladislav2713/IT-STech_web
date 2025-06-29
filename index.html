@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Мои задачи</h1>
+        <nav class="nav-menu">
+            <span class="hamburger" aria-label="Открыть меню">☰</span>
+            <ul class="nav-list">
+                <li><a href="#tasks">Задачи</a></li>
+                <li><a href="#add-task">Добавить</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="tasks" class="tasks">
+            <h2>Список задач</h2>
+            <ul class="task-list"></ul>
+            <button class="load-tasks">Загрузить задачи</button>
+        </section>
+        <section id="add-task" class="add-task">
+            <h2>Добавить задачу</h2>
+            <form class="task-form">
+                <input type="text" class="task-input" placeholder="Название задачи" required>
+                <button type="submit" class="task-submit">Добавить</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025, Vladislav</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

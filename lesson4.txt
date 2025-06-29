@@ -1,0 +1,97 @@
+1.	Компоненты лендинга:
+o	Hero-секция: Заголовок, подзаголовок, CTA-кнопка.
+o	Особенности (Features): Преимущества продукта.
+o	Отзывы (Testimonials): Социальное доказательство.
+o	Контакты (Contact): Форма или ссылки.
+o	Футер: Копирайт, навигация.
+
+2.	Ключевые аспекты:
+o	Семантика: <header>, <main>, <section>, <footer> для структуры.
+o	Адаптивность: Flexbox, Grid, медиа-запросы.
+o	Интерактивность: Анимации, псевдоклассы, гамбургер-меню.
+o	Доступность: ARIA-атрибуты, alt, клавиатурная навигация.
+o	Оптимизация: Минификация CSS, кроссбраузерность, производительность.
+
+Лучшие практики
+1.	Семантика и доступность:
+o	Используйте семантические теги.
+o	Добавляйте alt для <img>, aria-label для интерактивных элементов.
+o	Обеспечьте фокус для клавиатуры (:focus).
+
+2.	Адаптивный дизайн:
+o	Mobile-first подход.
+o	Breakpoints: 320px (моб), 768px (планшет), 1024px (десктоп).
+o	Используйте rem, vw, % для гибкости.
+
+3.	Оптимизация:
+o	Минифицируйте CSS (удалите пробелы, комментарии).
+o	Проверьте кроссбраузерность (Chrome, Firefox, Safari).
+o	Используйте Lighthouse в DevTools для аудита.
+
+4.	Интерактивность:
+o	Анимации с transition и @keyframes.
+o	Гамбургер-меню для мобильных устройств.
+o	Стили для форм (без JavaScript, только CSS).
+
+Инструменты
+•	VS Code: Live Server, Prettier (для форматирования), CSS Peek.
+•	Chrome DevTools: Вкладки Elements, Styles, Lighthouse, Responsive Design Mode.
+•	Ресурсы: Google Fonts, Unsplash (изображения), Normalize.css (сброс стилей).
+
+Для примера №2:
+1.	Обновите landing.html, добавив в <main>:
+<section id="features" class="features">
+    <h2>Почему выбирают нас?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Быстродействие</h3>
+            <p>Молниеносная загрузка страниц.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Дизайн</h3>
+            <p>Современный и удобный интерфейс.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Поддержка</h3>
+            <p>Круглосуточная помощь.</p>
+        </div>
+    </div>
+</section>
+
+2. Обновите landing.css:
+.features {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.feature-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+}
+}

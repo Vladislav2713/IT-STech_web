@@ -1,0 +1,65 @@
+1.	Способы подключения CSS:
+o	Внешний файл: <link rel="stylesheet" href="styles.css"> (рекомендуется).
+o	Внутренний: <style>body { color: blue; }</style> в <head>.
+o	Инлайн: <p style="color: red;"> (избегайте).
+
+2.	Синтаксис:
+селектор {
+    свойство: значение;
+}
+Пример: p { font-size: 16px; }.
+
+3.	Каскад и специфичность:
+o	Каскад: Правила применяются сверху вниз.
+o	Специфичность: id > class > тег.
+o	!important переопределяет (используйте редко).
+
+4.	Инструменты:
+o	VS Code с расширениями (Live Server, CSS Peek).
+o	Chrome DevTools для анализа стилей (вкладка Styles).
+
+Селекторы
+Селекторы определяют, к каким элементам применяются стили.
+1.	Базовые:
+o	Тег: p {}.
+o	Класс: .class {}.
+o	ID: #id {}.
+
+2.	Комбинированные:
+o	Потомки: .container p (все <p> внутри .container).
+o	Дочерние: .container > p (прямые <p>).
+o	Соседние: h2 + p (<p> сразу после <h2>).
+
+3.	Псевдоклассы:
+o	:hover, :focus, :first-child, :nth-child(n).
+o	Пример: a:hover { color: red; }.
+
+4.	Псевдоэлементы:
+o	::before, ::after.
+o	Пример: p::before { content: "★"; }.
+
+Основные свойства
+1.	Цвета и фоны:
+o	color: Цвет текста (#333, rgb(255, 0, 0), red).
+o	background-color, background-image.
+
+2.	Шрифты:
+o	font-family: "Arial", sans-serif.
+o	font-size: 16px, 1rem.
+o	font-weight: 400, bold.
+o	line-height: 1.5.
+
+3.	Box Model:
+o	margin: Внешние отступы.
+o	padding: Внутренние отступы.
+o	border: 1px solid #000.
+o	width, height.
+o	box-sizing: border-box (учитывает padding и border).
+
+4.	Позиционирование:
+o	display: block, inline, inline-block.
+o	position: static, relative, absolute.
+
+5.	Анимации:
+o	transition: transition: color 0.3s ease;.
+o	@keyframes: Пользовательские анимации.

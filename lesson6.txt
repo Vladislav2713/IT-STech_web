@@ -1,0 +1,109 @@
+1.	Массивы:
+o	Создание: let arr = [1, "text", true];.
+o	Доступ: arr[0] (нулевая индексация).
+o	Методы:
+push(), pop(): Добавить/удалить в конец.
+shift(), unshift(): Добавить/удалить в начало.
+map(), filter(), forEach(): Обработка элементов.
+find(), includes(): Поиск.
+o	Пример: arr.map(item => item * 2).
+
+2.	Объекты:
+o	Создание: let obj = { name: "Анна", age: 25 };.
+o	Доступ: obj.name или obj["name"].
+o	Методы: Object.keys(), Object.values(), Object.entries().
+o	Пример: Object.keys(obj) → ["name", "age"].
+
+3.	Циклы для данных:
+o	for (let i = 0; i < arr.length; i++) { ... }.
+o	for...of: for (let item of arr) { ... }.
+o	for...in (для объектов): for (let key in obj) { ... }.
+
+4.	localStorage:
+o	Сохранение: localStorage.setItem("key", JSON.stringify(data));.
+o	Получение: JSON.parse(localStorage.getItem("key"));.
+o	Удаление: localStorage.removeItem("key").
+o	Применение: Сохранение настроек, данных формы.
+
+5.	Обработка ошибок:
+o	try { ... } catch (error) { console.error(error); }.
+o	Проверка: if (!data) throw new Error("Нет данных");.
+
+Для примера №2:
+1.	Обновите landing.html, добавив галерею и фильтр:
+<section id="gallery" class="gallery">
+    <h2>Галерея</h2>
+    <select class="gallery-filter">
+        <option value="all">Все</option>
+        <option value="nature">Природа</option>
+        <option value="city">Город</option>
+    </select>
+    <div class="gallery-grid"></div>
+</section>
+
+2.	Обновите landing.css:
+.gallery {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.gallery-filter {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+    animation: slideIn 0.5s;
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+3.	Обновите script.js:
+const galleryImages = [
+    { src: "https://picsum.photos/300/200?random=1", category: "nature" },
+    { src: "https://picsum.photos/300/200?random=2", category: "city" },
+    { src: "https://picsum.photos/300/200?random=3", category: "nature" }
+];
+
+const galleryGrid = document.querySelector('.gallery-grid');
+const filterSelect = document.querySelector('.gallery-filter');
+
+function renderGallery(filter = 'all') {
+    galleryGrid.innerHTML = '';
+    const filteredImages = filter === 'all' 
+        ? galleryImages 
+        : galleryImages.filter(img => img.category === filter);
+    
+    filteredImages.forEach(img => {
+        const image = document.createElement('img');
+        image.src = img.src;
+        image.alt = `Изображение ${img.category}`;
+        galleryGrid.appendChild(image);
+    });
+    }
+
+filterSelect.addEventListener('change', (e) => {
+    const selectedFilter = e.target.value;
+    localStorage.setItem('galleryFilter', selectedFilter);
+    renderGallery(selectedFilter);
+});
+
+// Загрузка сохранённого фильтра
+const savedFilter = localStorage.getItem('galleryFilter') || 'all';
+filterSelect.value = savedFilter;
+renderGallery(savedFilter);

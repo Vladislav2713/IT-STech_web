@@ -1,0 +1,139 @@
+1.	Роль JavaScript:
+o	Манипуляции с DOM: Изменение HTML/CSS.
+o	Обработка событий: Реакция на клики, ввод, прокрутку.
+o	Динамический контент: Создание/удаление элементов.
+
+2.	Подключение JS:
+o	Внешний файл: <script src="script.js"></script> (в конце <body>).
+o	Внутренний: <script>код</script>.
+o	Инлайн: onclick="func()" (избегайте).
+
+3.	Инструменты:
+o	VS Code (расширения: JavaScript Snippet, Live Server).
+o	Chrome DevTools (вкладка Console, Sources).
+o	Консоль: console.log(), console.error().
+
+Основы JavaScript
+1.	Переменные:
+o	let, const, var (используйте let/const).
+o	Пример: let name = "Анна"; const age = 25;.
+
+2.	Типы данных:
+o	Числа: 42, 3.14.
+o	Строки: "Привет".
+o	Булевы: true, false.
+o	Объекты: { name: "Анна", age: 25 }.
+o	Массивы: ["HTML", "CSS"].
+
+3.	Операторы:
+o	Арифметические: +, -, *, /.
+o	Сравнения: ==, ===, >, <.
+o	Логические: &&, ||, !.
+
+4.	Функции:
+o	Объявление: function sayHello() { console.log("Привет!"); }.
+o	Стрелочные: const add = (a, b) => a + b;.
+
+5.	Условия и циклы:
+o	if (условие) { ... } else { ... }.
+o	for (let i = 0; i < 5; i++) { ... }.
+
+Работа с DOM
+DOM (Document Object Model) — представление HTML как дерева объектов.
+1.	Доступ к элементам:
+o	document.querySelector(".class"): Один элемент.
+o	document.querySelectorAll(".class"): Все элементы.
+o	document.getElementById("id").
+
+2.	Изменение:
+o	element.textContent: Текст.
+o	element.style.color: CSS-стили.
+o	element.classList.add("class"): Классы.
+
+3.	Создание элементов:
+o	document.createElement("div").
+o	element.appendChild(newElement).
+
+4.	События:
+o	element.addEventListener("click", () => { ... }).
+o	События: click, input, mouseover, submit.
+
+Для примера №2:
+1.	Обновите landing.html, добавив форму:
+<section id="contact" class="contact">
+    <h2>Свяжитесь с нами</h2>
+    <form class="contact-form">
+        <input type="text" class="form-input" placeholder="Имя" required aria-required="true">
+        <input type="email" class="form-input" placeholder="Email" required aria-required="true">
+        <textarea class="form-textarea" placeholder="Сообщение" required aria-required="true"></textarea>
+        <button type="submit" class="form-button">Отправить</button>
+        <p class="form-error" style="display: none;"></p>
+    </form>
+</section>
+
+2.	Обновите landing.css:
+.contact {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-input, .form-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.form-input:focus, .form-textarea:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+.form-button {
+    padding: 10px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.form-button:hover {
+    background: #e55a5a;
+}
+.form-error {
+    color: #e55a5a;
+    font-size: 0.9rem;
+}
+
+3.	Обновите script.js:
+const form = document.querySelector('.contact-form');
+const inputs = document.querySelectorAll('.form-input');
+const error = document.querySelector('.form-error');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let hasError = false;
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            hasError = true;
+            input.style.borderColor = '#e55a5a';
+            error.textContent = 'Заполните все поля!';
+            error.style.display = 'block';
+        } else {
+            input.style.borderColor = '#ddd';
+        }
+    });
+
+    if (!hasError) {
+        error.textContent = 'Форма отправлена!';
+        error.style.color = '#0066cc';
+        error.style.display = 'block';
+        form.reset();
+    }
+});

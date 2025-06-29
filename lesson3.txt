@@ -1,0 +1,70 @@
+1.	Проблемы старых методов:
+o	float: Нестабильное выравнивание.
+o	position: absolute: Сложность адаптивности.
+o	Таблицы: Не для макетов.
+
+2.	Современные решения:
+o	Flexbox: Одномерные макеты (строки или столбцы).
+o	Grid: Двухмерные макеты (сетки).
+o	Медиа-запросы: Адаптация под устройства.
+
+3.	Инструменты:
+o	VS Code (Live Server, CSS Peek).
+o	Chrome DevTools (вкладки Layout, Responsive Design Mode).
+o	Figma/Adobe XD для прототипов (упоминание).
+
+Flexbox
+Flexbox — система для одномерных макетов, идеальна для меню, карточек, центрирования.
+1.	Основы:
+o	display: flex на контейнере.
+o	flex-direction: row (по умолчанию), column, row-reverse.
+o	justify-content: flex-start, center, space-between, space-around.
+o	align-items: stretch, center, flex-start.
+
+2.	Свойства элементов:
+o	flex-grow: Рост элемента (например, 1).
+o	flex-shrink: Сжатие.
+o	flex: Сокращение (flex: 1 = flex-grow: 1; flex-shrink: 1; flex-basis: 0%).
+o	order: Порядок элементов.
+
+3.	Практическое применение:
+o	Навигационные меню.
+o	Равномерное распределение карточек.
+o	Центрирование контента.
+
+Grid
+Grid — система для двухмерных макетов, подходит для сложных сеток.
+1.	Основы:
+o	display: grid на контейнере.
+o	grid-template-columns: 1fr 1fr, repeat(3, 1fr), 100px auto.
+o	grid-template-rows: Высота строк.
+o	gap: Отступы между ячейками.
+
+2.	Размещение:
+o	grid-column: 1 / 3 (от 1-й до 3-й линии).
+o	grid-row: Аналогично.
+o	Именованные области: grid-template-areas.
+
+3.	Практическое применение:
+o	Макеты страниц (шапка, сайдбар, контент).
+o	Фотогалереи.
+o	Дашборды.
+
+Адаптивный дизайн
+Адаптивность обеспечивает корректное отображение на разных устройствах.
+1.	Медиа-запросы:
+o	@media (max-width: 600px) { ... }.
+o	Условия: min-width, max-width, orientation.
+
+2.	Относительные единицы:
+o	rem, em: Относительно шрифта.
+o	vw, vh: Относительно окна.
+o	%: Относительно родителя.
+
+3.	Responsive подходы:
+o	Mobile-first: Базовые стили для малых экранов, затем @media (min-width).
+o	Breakpoints: 320px (моб), 768px (планшет), 1024px (десктоп).
+
+4.	Анимации для адаптивности:
+o	Плавные изменения: transition для width, margin.
+o	Условные стили: :hover только для десктопа.

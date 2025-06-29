@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой лендинг</title>
+    <link rel="stylesheet" href="landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="nav-menu">
+            <span class="hamburger" aria-label="Открыть меню">☰</span>
+            <ul class="nav-list">
+                <li><a href="#hero" aria-label="Главная">Главная</a></li>
+                <li><a href="#features" aria-label="Особенности">Особенности</a></li>
+                <li><a href="#contact" aria-label="Контакты">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="hero">
+    <div class="hero-content">
+        <h1>Ваше приложение</h1>
+        <p>Создано для упрощения жизни</p>
+        <div class="weather-widget">
+            <p class="weather-info">Загрузка погоды...</p>
+        </div>
+    </div>
+</section>
+        <section id="features" class="features">
+    <h2>Почему выбирают нас?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Быстродействие</h3>
+            <p>Молниеносная загрузка страниц.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Дизайн</h3>
+            <p>Современный и удобный интерфейс.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Поддержка</h3>
+            <p>Круглосуточная помощь.</p>
+        </div>
+    </div>
+</section>
+<section id="gallery" class="gallery">
+    <h2>Галерея</h2>
+    <select class="gallery-filter">
+        <option value="all">Все</option>
+        <option value="nature">Природа</option>
+        <option value="city">Город</option>
+    </select>
+    <div class="gallery-grid"></div>
+</section>
+<section id="contact" class="contact">
+    <h2>Свяжитесь с нами</h2>
+    <form class="contact-form">
+        <input type="text" class="form-input" placeholder="Имя" required aria-required="true">
+        <input type="email" class="form-input" placeholder="Email" required aria-required="true">
+        <textarea class="form-textarea" placeholder="Сообщение" required aria-required="true"></textarea>
+        <button type="submit" class="form-button">Отправить</button>
+        <p class="form-error" style="display: none;"></p>
+    </form>
+</section>
+<section id="testimonials" class="testimonials">
+    <h2>Отзывы</h2>
+    <div class="testimonials-grid"></div>
+    <button class="load-posts">Загрузить отзывы</button>
+</section>
+    </main>
+    <footer>
+        <p>© 2025, Vladislav</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
